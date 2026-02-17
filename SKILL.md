@@ -14,8 +14,11 @@ Post-process Whisper-generated SRT files to meet Netflix Timed Text Style Guide 
 # Validate subtitle file
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py validate video.srt --lang en
 
-# Fix issues automatically
+# Fix issues automatically (keeps all entries)
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py fix video.srt video_fixed.srt --lang en
+
+# Clean: remove unfixable entries (100% compliance)
+python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py clean video.srt video_clean.srt --lang en
 
 # Generate detailed report
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py report video.srt --lang en
@@ -61,7 +64,7 @@ Exit codes:
 
 ### fix
 
-Auto-fix common issues and write corrected SRT.
+Auto-fix common issues and write corrected SRT. Keeps all entries.
 
 ```bash
 python3 netflix_subs.py fix input.srt output.srt --lang en
@@ -72,6 +75,25 @@ Fixes applied:
 - Splits lines exceeding character limits
 - Adjusts gaps between subtitles
 - Limits to 2 lines per subtitle
+
+### clean
+
+Remove unfixable entries, output only valid ones. Use when you need guaranteed compliance.
+
+```bash
+python3 netflix_subs.py clean input.srt output.srt --lang en
+```
+
+Behavior:
+- Applies all fixes from `fix` command
+- Removes entries that still have issues (e.g., CPS too high)
+- Re-indexes remaining entries
+- Reports which entries were removed and why
+
+Use cases:
+- When you need 100% Netflix compliance
+- When some content loss is acceptable
+- As a final step after manual review of `fix` output
 
 ### report
 

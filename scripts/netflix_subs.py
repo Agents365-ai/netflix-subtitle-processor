@@ -140,6 +140,21 @@ def fix_entries(entries, lang):
         fixed.append(e)
     return fix_gaps(fixed)
 
+def clean_entries(entries, lang):
+    """Remove entries that have unfixable issues (high CPS after line breaks)."""
+    cfg = LANG_CONFIG.get(lang, LANG_CONFIG['en'])
+    cleaned = []
+    removed = []
+    for e in entries:
+        e_copy = fix_timing(e.copy())
+        e_copy['text'] = fix_line_breaks(e_copy['text'], lang, cfg['max_chars'])
+        issues = validate_entry(e_copy, lang, cfg)
+        if not issues:
+            cleaned.append(e_copy)
+        else:
+            removed.append((e['index'], issues))
+    return fix_gaps(cleaned), removed
+
 def print_report(path, lang, issues):
     cfg = LANG_CONFIG.get(lang, LANG_CONFIG['en'])
     entries = parse_srt(path)
@@ -187,7 +202,13 @@ def main():
         print("\nUsage:")
         print("  netflix_subs.py validate <input.srt> --lang <en|zh>")
         print("  netflix_subs.py fix <input.srt> <output.srt> --lang <en|zh>")
+        print("  netflix_subs.py clean <input.srt> <output.srt> --lang <en|zh>")
         print("  netflix_subs.py report <input.srt> --lang <en|zh>")
+        print("\nCommands:")
+        print("  validate  Check compliance, exit 1 if issues found")
+        print("  fix       Repair timing/lines, keep all entries")
+        print("  clean     Remove unfixable entries, output only valid ones")
+        print("  report    Detailed validation report")
         print("\nNetflix specs:")
         print("  English: 42 chars/line, 17 CPS, 833ms-7s duration, 83ms gap")
         print("  Chinese: 16 chars/line, 9 CPS, 833ms-7s duration, 83ms gap")
@@ -226,6 +247,32 @@ def main():
             print(f"  Note: {len(new_issues)} issues remain (may need manual review)")
         else:
             print(f"  ✓ Output passes all Netflix specs")
+
+    elif cmd == 'clean':
+        if len(sys.argv) < 4:
+            print("Usage: netflix_subs.py clean <input.srt> <output.srt> --lang <en|zh>")
+            sys.exit(1)
+        entries = parse_srt(sys.argv[2])
+        cleaned, removed = clean_entries(entries, lang)
+        out_path = sys.argv[3]
+        write_srt(cleaned, out_path)
+
+        print(f"Cleaned {len(entries)} entries -> {out_path}")
+        print(f"  Kept: {len(cleaned)} entries")
+        print(f"  Removed: {len(removed)} entries")
+        if removed:
+            print(f"\nRemoved entries:")
+            for idx, issues in removed[:10]:
+                print(f"  #{idx}: {', '.join(issues)}")
+            if len(removed) > 10:
+                print(f"  ... and {len(removed) - 10} more")
+
+        # Verify output is clean
+        new_issues = validate(cleaned, lang)
+        if new_issues:
+            print(f"\nWarning: {len(new_issues)} issues remain after clean")
+        else:
+            print(f"\n✓ Output passes all Netflix specs")
 
     elif cmd == 'report':
         entries = parse_srt(sys.argv[2])
