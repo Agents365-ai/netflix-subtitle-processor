@@ -1,0 +1,7 @@
+CLAUDE.md
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+*.srt
+!test_*.srt
