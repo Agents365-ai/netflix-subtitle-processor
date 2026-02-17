@@ -2,6 +2,11 @@
 
 一个 Claude Code 技能，用于将 Whisper 生成的 SRT 字幕处理成符合 Netflix Timed Text Style Guide 规范的专业字幕。
 
+**探索未至之境**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Agents365--ai-blue?logo=github)](https://github.com/Agents365-ai)
+[![Bilibili](https://img.shields.io/badge/Bilibili-441831884-pink?logo=bilibili)](https://space.bilibili.com/441831884)
+
 ## 功能
 
 - **验证** SRT 文件是否符合 Netflix 规范
@@ -33,8 +38,11 @@ git clone https://github.com/Agents365-ai/netflix-subtitle-processor.git ~/.clau
 # 验证
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py validate video.srt --lang zh
 
-# 修复
+# 修复（保留所有条目）
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py fix video.srt video_fixed.srt --lang zh
+
+# 清理（移除无法修复的条目）
+python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py clean video.srt video_clean.srt --lang zh
 
 # 报告
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py report video.srt --lang zh

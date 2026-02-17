@@ -2,6 +2,11 @@
 
 A Claude Code skill for processing Whisper-generated SRT files to meet Netflix Timed Text Style Guide specifications.
 
+**探索未至之境**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Agents365--ai-blue?logo=github)](https://github.com/Agents365-ai)
+[![Bilibili](https://img.shields.io/badge/Bilibili-441831884-pink?logo=bilibili)](https://space.bilibili.com/441831884)
+
 ## Features
 
 - **Validate** SRT files against Netflix specifications
@@ -33,8 +38,11 @@ Please validate my_video.srt against Netflix specs
 # Validate
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py validate video.srt --lang en
 
-# Fix
+# Fix (keeps all entries)
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py fix video.srt video_fixed.srt --lang en
+
+# Clean (removes unfixable entries)
+python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py clean video.srt video_clean.srt --lang en
 
 # Report
 python3 ~/.claude/skills/netflix-subtitle-processor/scripts/netflix_subs.py report video.srt --lang en
