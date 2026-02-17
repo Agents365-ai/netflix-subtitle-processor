@@ -2,11 +2,6 @@
 
 一个 Claude Code 技能，用于将 Whisper 生成的 SRT 字幕处理成符合 Netflix Timed Text Style Guide 规范的专业字幕。
 
-**探索未至之境**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Agents365--ai-blue?logo=github)](https://github.com/Agents365-ai)
-[![Bilibili](https://img.shields.io/badge/Bilibili-441831884-pink?logo=bilibili)](https://space.bilibili.com/441831884)
-
 ## 功能
 
 - **验证** SRT 文件是否符合 Netflix 规范
@@ -78,3 +73,10 @@ MIT 许可证 - 详见 [LICENSE](LICENSE)
 | <img src="images/wechat-pay.png" width="200" alt="微信支付"> | <img src="images/alipay.png" width="200" alt="支付宝"> |
 
 </div>
+
+---
+
+**探索未至之境**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Agents365--ai-blue?logo=github)](https://github.com/Agents365-ai)
+[![Bilibili](https://img.shields.io/badge/Bilibili-441831884-pink?logo=bilibili)](https://space.bilibili.com/441831884)

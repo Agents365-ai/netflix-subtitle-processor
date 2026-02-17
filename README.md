@@ -2,11 +2,6 @@
 
 A Claude Code skill for processing Whisper-generated SRT files to meet Netflix Timed Text Style Guide specifications.
 
-**探索未至之境**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Agents365--ai-blue?logo=github)](https://github.com/Agents365-ai)
-[![Bilibili](https://img.shields.io/badge/Bilibili-441831884-pink?logo=bilibili)](https://space.bilibili.com/441831884)
-
 ## Features
 
 - **Validate** SRT files against Netflix specifications
@@ -78,3 +73,10 @@ If this project helps you, consider buying me a coffee!
 | <img src="images/wechat-pay.png" width="200" alt="WeChat Pay"> | <img src="images/alipay.png" width="200" alt="Alipay"> |
 
 </div>
+
+---
+
+**探索未至之境**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Agents365--ai-blue?logo=github)](https://github.com/Agents365-ai)
+[![Bilibili](https://img.shields.io/badge/Bilibili-441831884-pink?logo=bilibili)](https://space.bilibili.com/441831884)
