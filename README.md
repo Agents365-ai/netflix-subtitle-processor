@@ -68,9 +68,9 @@ MIT License - see [LICENSE](LICENSE)
 
 If this project helps you, consider buying me a coffee!
 
-| WeChat Pay | Alipay |
-|:----------:|:------:|
-| <img src="images/wechat-pay.png" width="200" alt="WeChat Pay"> | <img src="images/alipay.png" width="200" alt="Alipay"> |
+| WeChat Pay | Alipay | Buy Me a Coffee |
+|:----------:|:------:|:---------------:|
+| <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/wechat-pay.png" width="180" alt="WeChat Pay"> | <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/alipay.png" width="180" alt="Alipay"> | <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/buymeacoffee.png" width="180" alt="Buy Me a Coffee"> |
 
 </div>
 

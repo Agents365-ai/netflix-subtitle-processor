@@ -68,9 +68,9 @@ MIT 许可证 - 详见 [LICENSE](LICENSE)
 
 如果这个项目对你有帮助，欢迎请我喝杯咖啡！
 
-| 微信支付 | 支付宝 |
-|:-------:|:------:|
-| <img src="images/wechat-pay.png" width="200" alt="微信支付"> | <img src="images/alipay.png" width="200" alt="支付宝"> |
+| 微信支付 | 支付宝 | Buy Me a Coffee |
+|:-------:|:------:|:---------------:|
+| <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/wechat-pay.png" width="180" alt="微信支付"> | <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/alipay.png" width="180" alt="支付宝"> | <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/buymeacoffee.png" width="180" alt="Buy Me a Coffee"> |
 
 </div>
 
